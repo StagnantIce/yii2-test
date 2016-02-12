@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
     Modal::end();
 
     Modal::begin([
-        'header' => '<h2>View image</h2>',
+        'header' => '<h2>View book</h2>',
         'id' => 'showBook',
     ]);
 
