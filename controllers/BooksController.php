@@ -35,11 +35,13 @@ class BooksController extends Controller
     public function actionIndex()
     {
         $searchModel = new BooksSearch();
-        if(!Yii::$app->request->queryParams && isset(Yii::$app->session['books_params'])) {
+        if(!Yii::$app->request->queryParams && isset(Yii::$app->session['books_params']) && isset(Yii::$app->session['books_edit'])) {
             Yii::$app->request->queryParams = Yii::$app->session['books_params'];
         } else if (Yii::$app->request->queryParams) {
             Yii::$app->session['books_params'] = Yii::$app->request->queryParams;
         }
+
+        unset(Yii::$app->session['books_edit']);
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -116,6 +118,7 @@ class BooksController extends Controller
     {
         $model = $this->findModel($id);
         $old_file = $model->preview;
+        Yii::$app->session['books_edit'] = true;
 
         if ($model->load(Yii::$app->request->post())) {
             if (!$model->preview) {
