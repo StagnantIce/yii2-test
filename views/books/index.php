@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             ['attribute' => 'author_id', 'value' => function($model) {
-                    return trim($model->author->firstname . ' ' . $model->author->lastname);
+                    return $model->author->getName();
                 }
             ],
             'date_create',

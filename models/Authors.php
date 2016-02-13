@@ -57,8 +57,12 @@ class Authors extends \yii\db\ActiveRecord
         $result = [];
         $authors = self::find()->all();
         foreach($authors as $author) {
-            $result[$author->id] = trim($author->firstname . ' ' . $author->lastname);
+            $result[$author->id] = $author->getName();
         }
         return $result;
+    }
+
+    public function getName() {
+        return trim($this->firstname . ' ' . $this->lastname);
     }
 }

@@ -57,6 +57,8 @@ class BooksSearch extends Books
             return $dataProvider;
         }
 
+        $query->joinWith('author');
+
         $query->andFilterWhere([
             'date' => $this->date,
             'author_id' => $this->author_id,

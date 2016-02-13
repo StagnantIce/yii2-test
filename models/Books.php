@@ -68,7 +68,7 @@ class Books extends \yii\db\ActiveRecord
             'date_create' => 'Date Create',
             'date_update' => 'Date Update',
             'date' => 'Date',
-            'author_id' => 'Author ID',
+            'author_id' => 'Author',
         ];
     }
 

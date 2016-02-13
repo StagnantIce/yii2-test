@@ -30,11 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'preview',
+            ['attribute' => 'preview', 'format' => 'raw', 'value' => $model->preview ? Html::img(['/thumb/show', 'src'=>$model->preview, 'width' => 100]) : '' ],
             'date_create',
             'date_update',
             'date',
-            'author_id',
+            ['attribute' => 'author_id', 'value' => $model->author->getName()],
         ],
     ]) ?>
 
